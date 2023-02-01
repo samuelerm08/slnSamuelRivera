@@ -18,13 +18,13 @@ namespace SistemaWebMisRecetas.Models
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "El campo es obligatorio")]
         public string Categoria { get; set; }        
-
-        [Column(TypeName = "varchar(200)")]
-        [Required(ErrorMessage = "El campo es obligatorio")]        
+        
+        [Required(ErrorMessage = "El campo es obligatorio")]
+        [DataType(DataType.MultilineText)]
         public string Instrucciones { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
         [Required(ErrorMessage = "El campo es obligatorio")]        
+        [DataType(DataType.MultilineText)]
         public string Ingredientes { get; set; }
 
         [Column(TypeName = "varchar(50)")]

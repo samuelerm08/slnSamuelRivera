@@ -1,16 +1,26 @@
 ﻿@model IEnumerable<SistemaWebMisRecetas.Models.Receta>
 
+@using (Html.BeginForm("Filter", "Receta", FormMethod.Get))
+{
+    foreach (var item in Model)
+    {
+        <div id="filtro">
+            <input type="text" name="text" />
+            <input type="submit" name="Filtrar" value="Filtrar" />
+        </div>
+        break;
+    }
+}
+
 <table class="table container">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Id)</th>
             <th>@Html.DisplayNameFor(model => model.Titulo)</th>
             <th>@Html.DisplayNameFor(model => model.Categoria)</th>
-            <th>@Html.DisplayNameFor(model => model.Instrucciones)</th>
             <th>@Html.DisplayNameFor(model => model.NombreAutor)</th>
             <th>@Html.DisplayNameFor(model => model.ApellidoAutor)</th>
-            <th>@Html.DisplayNameFor(model => model.EdadAutor)</th>
-            <th>@Html.DisplayNameFor(model => model.EmailAutor)</th>
+            <th>Operaciones</th>
         </tr>
     </thead>
 
@@ -31,10 +41,6 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Instrucciones)
-                </td>
-
-                <td>
                     @Html.DisplayFor(modelItem => item.NombreAutor)
                 </td>
 
@@ -43,11 +49,8 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.EdadAutor)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailAutor)
+                    @Html.ActionLink("Borrar", "Delete", "Receta", new {id = item.Id}, new{@class="btn btn-light"})
+                    @Html.ActionLink("Editar", "Edit", "Receta", new {id = item.Id}, new{@class="btn btn-light"})
                 </td>
             </tr>
         }
@@ -55,8 +58,5 @@
 </table>
 
 @section SideBar{
-    @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-success" })    
+    @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-light" })
 }
-
-
-

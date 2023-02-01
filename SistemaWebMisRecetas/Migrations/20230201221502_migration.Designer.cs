@@ -9,8 +9,8 @@ using SistemaWebMisRecetas.Data;
 namespace SistemaWebMisRecetas.Migrations
 {
     [DbContext(typeof(RecetaContext))]
-    [Migration("20230201192358_lastmigration")]
-    partial class lastmigration
+    [Migration("20230201221502_migration")]
+    partial class migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,11 +44,11 @@ namespace SistemaWebMisRecetas.Migrations
 
                     b.Property<string>("Ingredientes")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Instrucciones")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreAutor")
                         .IsRequired()

@@ -42,11 +42,11 @@ namespace SistemaWebMisRecetas.Migrations
 
                     b.Property<string>("Ingredientes")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Instrucciones")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreAutor")
                         .IsRequired()

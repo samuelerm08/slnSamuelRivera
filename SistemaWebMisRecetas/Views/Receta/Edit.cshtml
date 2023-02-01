@@ -56,8 +56,10 @@
         <input type="submit" class="btn btn-success" value="Editar" action="" />
     </div>
     @section SideBar{
-    @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-success" })
-    @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-primary"})
-    @Html.ActionLink("Borrar", "Delete", "Receta", new {id = Model.Id}, new{@class="btn btn-danger"})
+    <div class="container">
+        @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-light"})
+        @Html.ActionLink("Borrar", "Delete", "Receta", new {id = Model.Id}, new{@class="btn btn-danger"})
+    </div>
     }
 }

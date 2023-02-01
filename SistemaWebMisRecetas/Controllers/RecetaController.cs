@@ -22,6 +22,16 @@ namespace SistemaWebMisRecetas.Controllers
         }
 
         [HttpGet]
+        public ActionResult Filter(string text)
+        {
+            var recetas = (from r in context.Recetas
+                           where text == r.NombreAutor || text == r.ApellidoAutor
+                           select r).ToList();
+
+            return View("Index", recetas);
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             var receta = new Receta();

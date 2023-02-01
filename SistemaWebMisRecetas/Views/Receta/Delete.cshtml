@@ -16,6 +16,8 @@
 </div>
 
 @section SideBar{
-    @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-primary"})
-    @Html.ActionLink("Editar", "Edit", "Receta", new {id = Model.Id}, new{@class="btn btn-warning"})
+    <div class="container"> 
+        @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-light"})
+        @Html.ActionLink("Editar", "Edit", "Receta", new {id = Model.Id}, new{@class="btn btn-light"})
+    </div>
 }

@@ -2,7 +2,7 @@
 
 namespace SistemaWebMisRecetas.Migrations
 {
-    public partial class initial : Migration
+    public partial class migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +12,10 @@ namespace SistemaWebMisRecetas.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "varchar(50)", nullable: false),
                     Categoria = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Instrucciones = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Ingredientes = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Instrucciones = table.Column<string>(nullable: false),
+                    Ingredientes = table.Column<string>(nullable: false),
                     NombreAutor = table.Column<string>(type: "varchar(50)", nullable: false),
                     ApellidoAutor = table.Column<string>(type: "varchar(50)", nullable: false),
                     EdadAutor = table.Column<int>(nullable: false),
