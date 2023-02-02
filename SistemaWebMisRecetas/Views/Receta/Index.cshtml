@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<SistemaWebMisRecetas.Models.Receta>
 
+
 @using (Html.BeginForm("Filter", "Receta", FormMethod.Get))
 {
-    foreach (var item in Model)
-    {
-        <div id="filtro">
-            <input type="text" name="text" />
-            <input type="submit" name="Filtrar" value="Filtrar" />
-        </div>
-        break;
-    }
+    <div id="filtro">
+        <input type="text" name="text" />
+        <input type="submit" name="Filtrar" value="Filtrar" />
+    </div>
 }
 
 <table class="table container">

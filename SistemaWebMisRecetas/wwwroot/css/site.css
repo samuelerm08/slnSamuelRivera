@@ -144,9 +144,9 @@ main {
     text-align: center;
 }
 
-#titlefotos img{
-    padding: 15px;
-}
+    #titlefotos img {
+        padding: 15px;
+    }
 
 footer {
     color: red;
