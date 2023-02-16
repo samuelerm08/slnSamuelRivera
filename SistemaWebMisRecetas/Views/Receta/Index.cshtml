@@ -29,7 +29,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
-
+                @*Se accede a Details directamente desde el titulo de la receta*@
                 <td>
                     @Html.ActionLink($"{item.Titulo}", "Details", "Receta", new {title = item.Titulo})
                 </td>

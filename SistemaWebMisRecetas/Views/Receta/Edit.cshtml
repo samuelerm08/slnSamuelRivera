@@ -13,19 +13,19 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Categoria)
-            @Html.TextBoxFor(model => model.Categoria)
+            @Html.DropDownListFor(model => model.Categoria, new SelectList(Enum.GetValues(typeof(Categoria))))
             @Html.ValidationMessageFor(model => model.Categoria)
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Instrucciones)
-            @Html.TextBoxFor(model => model.Instrucciones)
+            @Html.EditorFor(model => model.Instrucciones)
             @Html.ValidationMessageFor(model => model.Instrucciones)
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Ingredientes)
-            @Html.TextBoxFor(model => model.Ingredientes)
+            @Html.EditorFor(model => model.Ingredientes)
             @Html.ValidationMessageFor(model => model.Ingredientes)
         </div>
 
@@ -53,13 +53,12 @@
             @Html.ValidationMessageFor(model => model.EmailAutor)
         </div>
 
-        <input type="submit" class="btn btn-success" value="Guardar Cambios" action="" />
+        <input type="submit" class="btn btn-success" value="Guardar Cambios" action="Edit" />
     </div>
-    @section SideBar{
+}
+@section SideBar{
     <div class="container">
         @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-light"})
-        @Html.ActionLink("Borrar", "Delete", "Receta", new {id = Model.Id}, new{@class="btn btn-danger"})
+        @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-light"})        
     </div>
-    }
 }

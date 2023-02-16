@@ -86,7 +86,7 @@ namespace SistemaWebMisRecetas.Controllers
             {
                 context.Recetas.Remove(receta);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
         }
 
@@ -94,19 +94,22 @@ namespace SistemaWebMisRecetas.Controllers
         public ActionResult Edit(int id)
         {
             var receta = ObtenerUno(id);
-            return View("Edit", receta);
+            return View(nameof(Edit), receta);
         }
 
         [HttpPost]
         [ActionName("Edit")]
         public ActionResult EditConfirmed(Receta receta)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (ModelState.IsValid)
+            {
+                context.Entry(receta).State = EntityState.Modified;
+                context.SaveChanges();
 
-            context.Entry(receta).State = EntityState.Modified;
-            context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
 
-            return RedirectToAction("Index");
+            return View(nameof(Edit));            
         }
 
         private Receta ObtenerUno(int id)
