@@ -14,7 +14,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Categoria)
-            @Html.TextBoxFor(model => model.Categoria)
+            @Html.DropDownListFor(model => model.Categoria, new SelectList(Enum.GetValues(typeof(Categoria))))
             @Html.ValidationMessageFor(model => model.Categoria)
         </div>
 

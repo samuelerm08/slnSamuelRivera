@@ -5,6 +5,11 @@ using SistemaWebMisRecetas.Models.Helpers;
 
 namespace SistemaWebMisRecetas.Models
 {
+    public enum Categoria
+    {
+        Desayuno, Almuerzo, Cena
+    }
+
     [Table("Receta")]
     public class Receta
     {
@@ -17,7 +22,7 @@ namespace SistemaWebMisRecetas.Models
         [CategoriaAtributte]
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "El campo es obligatorio")]
-        public string Categoria { get; set; }        
+        public Categoria Categoria { get; set; }        
         
         [Required(ErrorMessage = "El campo es obligatorio")]
         [DataType(DataType.MultilineText)]

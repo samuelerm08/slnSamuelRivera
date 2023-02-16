@@ -12,7 +12,7 @@ namespace SistemaWebMisRecetas.Models.Helpers
                 return ValidationResult.Success;
             }
 
-            if (value.ToString() != "desayuno".ToUpper())
+            if ((Categoria)value != Categoria.Desayuno)
             {
                 return new ValidationResult("Solo se permite ingresar la categoría desayuno!");
             }

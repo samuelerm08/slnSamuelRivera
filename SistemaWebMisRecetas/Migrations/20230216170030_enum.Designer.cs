@@ -9,8 +9,8 @@ using SistemaWebMisRecetas.Data;
 namespace SistemaWebMisRecetas.Migrations
 {
     [DbContext(typeof(RecetaContext))]
-    [Migration("20230201221502_migration")]
-    partial class migration
+    [Migration("20230216170030_enum")]
+    partial class @enum
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
