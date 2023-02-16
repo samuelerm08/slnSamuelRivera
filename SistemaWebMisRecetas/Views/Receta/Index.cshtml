@@ -3,7 +3,8 @@
 
 @using (Html.BeginForm("Filter", "Receta", FormMethod.Get))
 {
-    <div id="filtro">
+    <div id="filtro">       
+        <label>Filtrar por nombre o apellido de autor</label>
         <input type="text" name="text" />
         <input type="submit" name="Filtrar" value="Filtrar" />
     </div>

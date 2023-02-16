@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SistemaWebMisRecetas.Helpers
+namespace SistemaWebMisRecetas.Models.Helpers
 {
     public class EdadAtributte : ValidationAttribute
     {

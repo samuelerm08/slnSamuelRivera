@@ -1,7 +1,7 @@
-﻿using SistemaWebMisRecetas.Helpers;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using SistemaWebMisRecetas.Models.Helpers;
 
 namespace SistemaWebMisRecetas.Models
 {
@@ -38,14 +38,14 @@ namespace SistemaWebMisRecetas.Models
         public string ApellidoAutor { get; set; }
         
         [Required(ErrorMessage = "El campo es obligatorio")]
-        [EdadAtributte]
         [Display(Name = "Edad Autor")]
+        [EdadAtributte] //Se valida que la edad del autor sea mayor a 18 años
         public int EdadAutor { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         [Required(ErrorMessage = "El campo es obligatorio")]
-        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Se debe ingresar un email")]
-        [Display(Name = "Email Autor")]
+        [Display(Name = "Email Autor")]        
+        [EmailAddress(ErrorMessage = "Se debe ingresar un email valido")] //Validacion email
         public string EmailAutor { get; set; }
     }
 }

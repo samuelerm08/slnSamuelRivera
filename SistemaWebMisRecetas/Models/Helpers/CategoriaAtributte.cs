@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SistemaWebMisRecetas.Helpers
+namespace SistemaWebMisRecetas.Models.Helpers
 {
     public class CategoriaAtributte : ValidationAttribute
     {
@@ -12,7 +12,7 @@ namespace SistemaWebMisRecetas.Helpers
                 return ValidationResult.Success;
             }
 
-            if (value.ToString() != "Desayuno")
+            if (value.ToString() != "desayuno".ToUpper())
             {
                 return new ValidationResult("Solo se permite ingresar la categoría desayuno!");
             }

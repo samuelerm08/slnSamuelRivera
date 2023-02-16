@@ -47,6 +47,7 @@ namespace SistemaWebMisRecetas.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(receta);
         }
 
