@@ -1,0 +1,23 @@
+﻿@model SistemaWebMisRecetas.Models.Receta
+
+<div class="container">
+    <h2>
+        Receta: @Model.Titulo
+    </h2>
+
+    <p>
+        ¿Desea eliminar esta receta?
+    </p>
+
+    @using (Html.BeginForm("Delete", "Receta", FormMethod.Post))
+    {
+        <input type="submit" class="btn btn-danger" action="Delete" value="Eliminar" />
+    }
+</div>
+
+@section SideBar{
+    <div class="container"> 
+        @Html.ActionLink("Volver a Index", "Index", "Receta", null, new {@class = "btn btn-light"})
+        @Html.ActionLink("Editar", "Edit", "Receta", new {id = Model.Id}, new{@class="btn btn-light"})
+    </div>
+}

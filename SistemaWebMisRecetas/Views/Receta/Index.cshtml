@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SistemaWebMisRecetas.Models.Receta>
+
+
+@using (Html.BeginForm("Filter", "Receta", FormMethod.Get))
+{
+    <div id="filtro">       
+        <label>Filtrar por nombre o apellido de autor</label>
+        <input type="text" name="text" />
+        <input type="submit" name="Filtrar" value="Filtrar" />
+    </div>
+}
+
+<table class="table container">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+            <th>@Html.DisplayNameFor(model => model.NombreAutor)</th>
+            <th>@Html.DisplayNameFor(model => model.ApellidoAutor)</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                @*Se accede a Details directamente desde el titulo de la receta*@
+                <td>
+                    @Html.ActionLink($"{item.Titulo}", "Details", "Receta", new {title = item.Titulo})
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreAutor)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoAutor)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Borrar", "Delete", "Receta", new {id = item.Id}, new{@class="btn btn-light"})
+                    @Html.ActionLink("Editar", "Edit", "Receta", new {id = item.Id}, new{@class="btn btn-light"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section SideBar{
+    @Html.ActionLink("Nueva", "Create", "Receta", null, new { @class = "btn btn-light" })
+}
